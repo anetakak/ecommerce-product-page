@@ -1,0 +1,12 @@
+{
+    "data": [
+        {
+            "thumbnail": "image-product-1-thumbnail.jpg",
+            "url": "image-product-1.jpg"
+        },
+        {
+            "thumbnail": "image-product-2-thumbnail.jpg",
+            "url": "image-product-2.jpg"
+        }
+    ]
+}
