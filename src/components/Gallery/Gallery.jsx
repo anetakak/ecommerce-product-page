@@ -6,6 +6,9 @@ import data from "../../images/images.json"
 const Gallery = () => {
 	return (
 		<div className="gallery">
+            {data.data.map((item) => (
+                <img src={`http://anetakak.github.io/ecommerce-product-page/ + ${item.url}`} alt="" />
+            ))}
 			<button>
 				<img src={prevArrow} alt="" />
 			</button>
