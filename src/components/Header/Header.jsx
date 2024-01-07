@@ -21,7 +21,7 @@ const Header = () => {
 				<button onClick={showNavHandler} className={classes['mobile-btn']}>
 					<img src={menuBtn} alt="" />
 				</button>
-				<a href="#" className={classes.brand}>sneakers</a>
+				<a href="#" className={classes.logo}>sneakers</a>
             <Navigation  onCloseNav={closeNavHandler} showNav={showNav} />
 			</div>
 			<div className={classes.cart}>

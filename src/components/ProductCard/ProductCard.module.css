@@ -1,0 +1,75 @@
+.product-card {
+	margin: 1.5em;
+	text-align: left;
+	font-size: 1.4rem;
+}
+.brand {
+	font-weight: 700;
+	text-transform: uppercase;
+	color: hsl(26, 100%, 55%);
+	letter-spacing: 0.3rem;
+}
+.heading {
+	margin: 0.4em 0;
+	/* font-size: 2.8rem; */
+}
+.description {
+	margin-bottom: 1.5em;
+	line-height: 2rem;
+	color: hsl(219, 9%, 45%);
+}
+.price-box {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.price {
+	display: flex;
+	align-items: center;
+	font-size: 2.8rem;
+	font-weight: 700;
+}
+.discount {
+	margin: 0 1em;
+	padding: 0.3em 0.6em;
+	font-size: 1.4rem;
+	color: hsl(26, 100%, 55%);
+	background-color: hsl(25, 100%, 94%);
+	border-radius: 5px;
+}
+.prev-price {
+	font-weight: 700;
+	text-decoration: line-through;
+	color: hsl(220, 14%, 75%);
+}
+.amount-box {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-top: 1.5em;
+	margin-bottom: 0.7em;
+	font-weight: bold;
+	background-color: hsl(223, 64%, 98%);
+	border-radius: 8px;
+}
+.amount-box button {
+	display: flex;
+	margin: 0.7em;
+}
+.cart-btn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+    letter-spacing: 0.1rem;
+	height: 4.6rem;
+    box-shadow: 0px 15px 15px 5px hsl(25, 100%, 94%);
+    transition: background-color .3s;
+}
+.cart-btn svg {
+    margin: 0 0.7em;
+    transform: scale(0.7);
+}
+.cart-btn:hover {
+    background-color: hsla(26, 100%, 55%, 70%);;
+}

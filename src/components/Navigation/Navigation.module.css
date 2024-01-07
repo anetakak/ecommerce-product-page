@@ -11,6 +11,7 @@
     width: 100vw;
     height: 100vh;
     background-color: hsla(0, 0%, 0%, 75%);
+    z-index: 10;
     animation: showBackdrop 0.3s ease-out;
 }
 .navigation {
@@ -24,6 +25,7 @@
     padding: 0.5em;
 	width: 30rem;
     background-color: #fff;
+    z-index: 100;
     animation: showNav 0.3s ease-out;
 }
 ul {

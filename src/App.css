@@ -1,6 +1,11 @@
-body {
-  margin: 0 auto;
-  text-align: center;
-  font-family: 'Kumbh Sans', sans-serif;
+.wrapper {
+	margin: 0 auto;
+	text-align: center;
+	max-width: 1200px;
 }
 
+@media (min-width: 768px) {
+	.wrapper {
+		padding: 0 1em;
+	}
+}
