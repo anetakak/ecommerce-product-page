@@ -1,7 +1,7 @@
 import { useState } from "react";
 import classes from "./Gallery.module.css";
-import prevArrow from "../../images/icon-previous.svg";
-import nextArrow from "../../images/icon-next.svg";
+import PrevIcon from "../../components/UI/Icons/PrevIcon";
+import NextIcon from "../../components/UI/Icons/NextIcon";
 
 import img1 from "../../images/image-product-1.jpg";
 import img2 from "../../images/image-product-2.jpg";
@@ -45,12 +45,12 @@ const Gallery = () => {
 				<button
 					onClick={prevImgHandle}
 					className={`${classes.arrow} + ${classes["prev-arrow"]}`}>
-					<img src={prevArrow} alt="" className={classes["arrow-img"]} />
+					<PrevIcon />
 				</button>
 				<button
 					onClick={nextImgHandle}
 					className={`${classes.arrow} + ${classes["next-arrow"]}`}>
-					<img src={nextArrow} alt="" className={classes["arrow-img"]} />
+					<NextIcon />
 				</button>
 			</div>
 			<div className={classes.thumbnails}>

@@ -8,6 +8,9 @@
 	width: 100%;
 }
 .arrow {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	position: absolute;
 	top: 50%;
 	transform: translateY(-50%);
@@ -15,19 +18,24 @@
 	border-radius: 50%;
 	width: 4rem;
 	height: 4rem;
-	transition: background-color, 0.3s;
 }
-.arrow:hover {
-	background-color: hsla(0, 0%, 100%, 75%);
+.arrow svg path {
+	transition: stroke .3s
 }
-.arrow-img {
-	height: 1.6rem;
+.arrow:hover path {
+	stroke: hsl(26, 100%, 55%);
 }
 .prev-arrow {
 	left: 1em;
 }
+.prev-arrow svg {
+	transform: translateX(-2px);
+}
 .next-arrow {
 	right: 1em;
+}
+.next-arrow svg {
+	transform: translateX(1px);
 }
 .thumbnails {
 	display: none;
