@@ -1,7 +1,6 @@
 import Attribution from "./components/Attribution/Attribution";
 import "./App.css";
 import Header from "./components/Header/Header";
-import Gallery from "./components/Gallery/Gallery";
 import ProductCard from "./components/ProductCard/ProductCard";
 
 function App() {

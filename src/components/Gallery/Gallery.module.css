@@ -29,13 +29,13 @@
 	left: 1em;
 }
 .prev-arrow svg {
-	transform: translateX(-2px);
+	transform: translateX(-2px) scale(0.8);
 }
 .next-arrow {
 	right: 1em;
 }
 .next-arrow svg {
-	transform: translateX(1px);
+	transform: translateX(1px) scale(0.8);
 }
 .thumbnails {
 	display: none;
@@ -51,8 +51,11 @@
 }
 @media (min-width: 768px) {
 	.wrapper {
-		margin: 5em 0;
+		margin: 0;
 		width: 40rem;
+	}
+	.gallery {
+		cursor: zoom-in;
 	}
 	.arrow {
 		display: none;

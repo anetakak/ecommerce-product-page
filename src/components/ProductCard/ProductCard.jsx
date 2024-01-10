@@ -1,7 +1,5 @@
 import classes from "./ProductCard.module.css";
 
-// import minusBtn from "../../images/icon-minus.svg";
-// import plusBtn from "../../images/icon-plus.svg";
 import MinusIcon from "../UI/Icons/MinusIcon";
 import PlusIcon from "../UI/Icons/PlusIcon";
 import Gallery from "../Gallery/Gallery";
