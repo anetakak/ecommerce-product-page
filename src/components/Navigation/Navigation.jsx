@@ -1,5 +1,5 @@
 import classes from "./Navigation.module.css";
-import closeBtn from "../../images/icon-close.svg";
+import CloseIcon from "../UI/Icons/CloseIcon";
 
 const Navigation = ({ onCloseNav, showNav }) => {
 	const closeNavHandler = () => {
@@ -9,8 +9,8 @@ const Navigation = ({ onCloseNav, showNav }) => {
 		<div className={showNav ? `${classes.nav} + ${classes.active}` : `${classes.nav}`}>
 			<div className={classes.backdrop}></div>
 			<div className={classes.navigation}>
-				<button onClick={closeNavHandler} className={classes['mobile-btn']}>
-					<img src={closeBtn} />
+				<button onClick={closeNavHandler} className={classes['closenav-btn']}>
+					<CloseIcon />
 				</button>
 				<ul>
 					<li>

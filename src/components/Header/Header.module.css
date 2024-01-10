@@ -23,12 +23,24 @@ button {
     border-color: transparent;
     cursor: pointer;
 }
-.cart {
+.user-panel {
     display: flex;
     align-items: center;
 }
+.cart-btn path, .mobilenav-btn path {
+    transition: fill .3s;
+}
+.cart-btn:hover path, .mobilenav-btn:hover path {
+    fill: hsl(220, 13%, 13%);
+}
 .avatar {
     width: 2em;
+    border: solid 2px transparent;
+    border-radius: 50%;
+    transition: border .3s;
+}
+.avatar:hover {
+    border: solid 2px hsl(26, 100%, 55%);
 }
 @media (min-width: 768px) {
     .header {
@@ -43,7 +55,7 @@ button {
         width: 100%;
         background-color: hsl(220, 14%, 75%);
     }
-    .mobile-btn {
+    .mobilenav-btn {
         display: none;
     }
     .avatar {
