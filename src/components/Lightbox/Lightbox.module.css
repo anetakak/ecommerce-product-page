@@ -1,13 +1,25 @@
 .lightbox {
 	display: flex;
     flex-direction: column;
-	align-items: flex-end;
-	justify-content: space-around;
+	align-items: center;
+	/* justify-content: space-around; */
+	padding: 1em;
+	width: 50%;
 }
 .close-btn {
 	margin-bottom: 0.5em;
 	margin-right: -0.5em;
+	padding: 0.5em;
+	align-self: flex-end;
+	border: none;
 }
 .close-btn svg path {
 	fill: hsl(0, 0%, 100%);
+	transition: fill .3s;
+}
+.close-btn:hover svg path {
+	fill: hsl(26, 100%, 55%);
+}
+.close-btn:focus {
+	outline: 1px solid hsl(26, 100%, 55%);
 }

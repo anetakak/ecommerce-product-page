@@ -11,14 +11,11 @@ import thumbnail1 from "../../images/image-product-1-thumbnail.jpg";
 import thumbnail2 from "../../images/image-product-2-thumbnail.jpg";
 import thumbnail3 from "../../images/image-product-3-thumbnail.jpg";
 import thumbnail4 from "../../images/image-product-4-thumbnail.jpg";
-import Lightbox from "../Lightbox/Lightbox";
 
-const Gallery = () => {
+const Gallery = ({ indexOfInitialPhoto, onClick }) => {
 	const imgArr = [img1, img2, img3, img4];
-	const [currentImgIndex, setCurrentImgIndex] = useState(0);
+	const [currentImgIndex, setCurrentImgIndex] = useState(indexOfInitialPhoto);
 	const thumbnailsArr = [thumbnail1, thumbnail2, thumbnail3, thumbnail4];
-
-	const [showLightbox, setShowLightbox] = useState(false)
 
 	const nextImgHandle = () => {
 		if (currentImgIndex === imgArr.length - 1) {
@@ -37,17 +34,16 @@ const Gallery = () => {
 	const chooseImgHandle = (index) => {
 		setCurrentImgIndex(index);
 	};
-	const showLightboxHandler = () => {
-		setShowLightbox(true);
-		console.log('show lightbox');
+	const showLightboxHandler = (currentImgIndex) => {
+		onClick(currentImgIndex);
 	}
-	const closeLightboxHandler = () => {
-		setShowLightbox(false);
-	}
+	// const closeLightboxHandler = () => {
+	// 	setShowLightbox(false);
+	// }
 	return (
-		<div className={classes.wrapper}>
-			{showLightbox && <Lightbox open={showLightbox} onCloseLightbox={closeLightboxHandler} />}
-			<div className={classes.gallery} onClick={showLightboxHandler}>
+		<>
+			{/* {showLightbox && <Lightbox open={showLightbox} onCloseLightbox={closeLightboxHandler} indexOfInitialPhoto={currentImgIndex} />} */}
+			<div className={classes.gallery} onClick={() => showLightboxHandler(currentImgIndex)}>
 				<img
 					src={imgArr[currentImgIndex]}
 					alt="photo of shoes"
@@ -66,7 +62,7 @@ const Gallery = () => {
 			</div>
 			<div className={classes.thumbnails}>
 				{thumbnailsArr.map((item, index) => (
-					<div
+					<button
 						className={
 							currentImgIndex === index
 								? `${classes["thumbnail-item"]} + ${classes["thumbnail-item--active"]}`
@@ -83,10 +79,10 @@ const Gallery = () => {
 									: `${classes["thumbnail-img"]}`
 							}
 						/>
-					</div>
+					</button>
 				))}
 			</div>
-		</div>
+		</>
 	);
 };
 export default Gallery;

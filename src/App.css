@@ -3,7 +3,11 @@
 	text-align: center;
 	max-width: 1000px;
 }
-
+button {
+    background-color: transparent;
+    border-color: transparent;
+    cursor: pointer;
+}
 @media (min-width: 768px) {
 	.wrapper {
 		padding: 0 1em;

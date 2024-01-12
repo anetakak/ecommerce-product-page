@@ -1,14 +1,42 @@
+import { useState } from "react";
 import classes from "./ProductCard.module.css";
 
 import MinusIcon from "../UI/Icons/MinusIcon";
 import PlusIcon from "../UI/Icons/PlusIcon";
 import Gallery from "../Gallery/Gallery";
 import Button from "../UI/Button/Button";
+import Lightbox from "../Lightbox/Lightbox";
 
 const ProductCard = () => {
+	const [showLightbox, setShowLightbox] = useState(false);
+	const [clickedImg, setClickedImg] = useState();
+
+	const showLightboxHandler = (imgIndex) => {
+		if (window.innerWidth > 768) {
+			setClickedImg(imgIndex);
+			setShowLightbox(true);
+		}
+	};
+	const closeLightboxHandler = () => {
+		setShowLightbox(false);
+	};
+	// const enlargeable = window.innerWidth > 768 ? true : false;
 	return (
 		<div className={classes["product-card"]}>
-			<Gallery />
+			<div className={classes["gallery-box"]}>
+				<Gallery
+					indexOfInitialPhoto={0}
+					onClick={showLightboxHandler}
+					// enlargeable={enlargeable}
+				/>
+			</div>
+			{showLightbox && (
+				<Lightbox
+					open={showLightbox}
+					onCloseLightbox={closeLightboxHandler}
+					indexOfInitialPhoto={clickedImg}
+				/>
+			)}
 			<div className={classes["product-summary"]}>
 				<p className={classes.brand}>sneaker company</p>
 				<h1 className={classes.heading}>Fall Limited Edition Sneakers</h1>

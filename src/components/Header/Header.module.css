@@ -17,11 +17,8 @@
     font-size: 3rem;
     font-weight: 700;
 }
-button {
+.header button {
     padding: 0.5em;
-    background-color: transparent;
-    border-color: transparent;
-    cursor: pointer;
 }
 .user-panel {
     display: flex;

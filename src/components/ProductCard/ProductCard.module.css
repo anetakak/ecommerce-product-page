@@ -1,3 +1,6 @@
+.gallery-box {
+	width: 100vw;
+}
 .product-summary {
 	margin: 1.5em auto;
 	padding: 0 1.5em;
@@ -61,6 +64,7 @@
 .amount-box button {
 	display: flex;
 	margin: 0.7em;
+	padding: 0.5em;
 }
 .amount-box button use {
 	transition: fill .3s;
@@ -85,6 +89,12 @@
 .cart-btn:hover {
     background-color: hsla(26, 100%, 55%, 70%);
 }
+@media (min-width: 576px) {
+	.gallery-box {
+		margin: 1.5em auto;
+		width: 50rem;
+	}
+}
 @media (min-width: 768px) {
 	.product-card {
 		display: flex;
@@ -92,6 +102,10 @@
 		justify-content: center;
 		gap: 5em;
 		padding: 0 2em;
+	}
+	.gallery-box {
+		margin: 0;
+		width: 40rem;
 	}
 	.product-summary {
 		margin: 0;

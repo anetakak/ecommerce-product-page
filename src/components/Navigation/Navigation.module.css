@@ -29,6 +29,7 @@
 }
 .closenav-btn {
     margin: 1em;
+    padding: 0.5em;
 }
 .closenav-btn path {
     transition: fill .3s;
