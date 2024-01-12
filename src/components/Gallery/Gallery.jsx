@@ -49,7 +49,7 @@ const Gallery = ({ indexOfInitialPhoto, onClick }) => {
 					alt="photo of shoes"
 					className={classes.image}
 				/>
-				<button
+				<button 
 					onClick={prevImgHandle}
 					className={`${classes.arrow} + ${classes["prev-arrow"]}`}>
 					<PrevIcon />

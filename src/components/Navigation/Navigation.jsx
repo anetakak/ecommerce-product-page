@@ -6,41 +6,56 @@ const Navigation = ({ onCloseNav, showNav }) => {
 		onCloseNav();
 	};
 	return (
-		<div className={showNav ? `${classes.nav} + ${classes.active}` : `${classes.nav}`}>
-			<div className={classes.backdrop}></div>
-			<div className={classes.navigation}>
-				<button onClick={closeNavHandler} className={classes['closenav-btn']}>
+		<nav>
+			<div className={showNav ? `${classes.backdrop} + ${classes["show-backdrop"]}` : `${classes.backdrop}`}></div>
+			<div className={showNav ? `${classes.navigation} + ${classes["show-navigation"]}` : `${classes.navigation}`}>
+				<button onClick={closeNavHandler} className={classes["closenav-btn"]}>
 					<CloseIcon />
 				</button>
 				<ul>
 					<li>
-						<a href="#" className={classes["nav-item"]} onClick={closeNavHandler}>
+						<a
+							href="#"
+							className={classes["nav-item"]}
+							onClick={closeNavHandler}>
 							Collections
 						</a>
 					</li>
 					<li>
-						<a href="#" className={classes["nav-item"]} onClick={closeNavHandler}>
+						<a
+							href="#"
+							className={classes["nav-item"]}
+							onClick={closeNavHandler}>
 							Men
 						</a>
 					</li>
 					<li>
-						<a href="#" className={classes["nav-item"]} onClick={closeNavHandler}>
+						<a
+							href="#"
+							className={classes["nav-item"]}
+							onClick={closeNavHandler}>
 							Woman
 						</a>
 					</li>
 					<li>
-						<a href="#" className={classes["nav-item"]} onClick={closeNavHandler}>
+						<a
+							href="#"
+							className={classes["nav-item"]}
+							onClick={closeNavHandler}>
 							About
 						</a>
 					</li>
 					<li>
-						<a href="#" className={classes["nav-item"]} onClick={closeNavHandler}>
+						<a
+							href="#"
+							className={classes["nav-item"]}
+							onClick={closeNavHandler}>
 							Contact
 						</a>
 					</li>
 				</ul>
 			</div>
-		</div>
+		</nav>
 	);
 };
 export default Navigation;
