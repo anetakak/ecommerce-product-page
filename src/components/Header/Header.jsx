@@ -5,6 +5,7 @@ import avatar from "../../images/image-avatar.png";
 import MenuIcon from "../UI/Icons/MenuIcon";
 import CartIcon from "../UI/Icons/CartIcon";
 import Navigation from "../Navigation/Navigation";
+import Cart from "../Attribution/Cart/Cart";
 
 const Header = () => {
     const [showNav, setShowNav] = useState(false);
@@ -16,7 +17,7 @@ const Header = () => {
         setShowNav(false)
     }
 	return (
-		<div className={classes.header}>
+		<header className={classes.header}>
 			<div className={classes.navbar}>
 				<button onClick={showNavHandler} className={classes['mobilenav-btn']}>
 					<MenuIcon />
@@ -32,7 +33,8 @@ const Header = () => {
 					<img src={avatar} alt="" className={classes.avatar}/>
 				</button>
 			</div>
-		</div>
+			<Cart />
+		</header>
 	);
 };
 export default Header;
