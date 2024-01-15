@@ -7,7 +7,7 @@ const Lightbox = ({ open, onCloseLightbox, indexOfInitialPhoto }) => {
 	const closeLightboxHandler = () => {
 		onCloseLightbox();
 	};
-const someFn = () => {
+const zoomBlockingHandler = () => {
 	return
 }
 	return (
@@ -16,7 +16,7 @@ const someFn = () => {
 				<button onClick={closeLightboxHandler} className={classes["close-btn"]}>
 					<CloseIcon />
 				</button>
-				<Gallery indexOfInitialPhoto={indexOfInitialPhoto} onClick={someFn} />
+				<Gallery indexOfInitialPhoto={indexOfInitialPhoto} onClick={zoomBlockingHandler} lightbox />
 			</div>
 		</Modal>
 	);

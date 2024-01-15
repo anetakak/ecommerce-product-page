@@ -12,7 +12,7 @@ import thumbnail2 from "../../images/image-product-2-thumbnail.jpg";
 import thumbnail3 from "../../images/image-product-3-thumbnail.jpg";
 import thumbnail4 from "../../images/image-product-4-thumbnail.jpg";
 
-const Gallery = ({ indexOfInitialPhoto, onClick }) => {
+const Gallery = ({ indexOfInitialPhoto, onClick, lightbox }) => {
 	const imgArr = [img1, img2, img3, img4];
 	const [currentImgIndex, setCurrentImgIndex] = useState(indexOfInitialPhoto);
 	const thumbnailsArr = [thumbnail1, thumbnail2, thumbnail3, thumbnail4];
@@ -37,13 +37,9 @@ const Gallery = ({ indexOfInitialPhoto, onClick }) => {
 	const showLightboxHandler = (currentImgIndex) => {
 		onClick(currentImgIndex);
 	}
-	// const closeLightboxHandler = () => {
-	// 	setShowLightbox(false);
-	// }
 	return (
 		<>
-			{/* {showLightbox && <Lightbox open={showLightbox} onCloseLightbox={closeLightboxHandler} indexOfInitialPhoto={currentImgIndex} />} */}
-			<div className={classes.gallery} onClick={() => showLightboxHandler(currentImgIndex)}>
+			<div className={lightbox ? `${classes['lightbox-gallery']} + ${classes.gallery}` : `${classes.gallery}`} onClick={() => showLightboxHandler(currentImgIndex)}>
 				<img
 					src={imgArr[currentImgIndex]}
 					alt="photo of shoes"
@@ -51,12 +47,12 @@ const Gallery = ({ indexOfInitialPhoto, onClick }) => {
 				/>
 				<button 
 					onClick={prevImgHandle}
-					className={`${classes.arrow} + ${classes["prev-arrow"]}`}>
+					className={lightbox ? `${classes.arrow} + ${classes['lightbox-arrow']} + ${classes["prev-arrow"]}` : `${classes.arrow} + ${classes["prev-arrow"]}`}>
 					<PrevIcon />
 				</button>
 				<button
 					onClick={nextImgHandle}
-					className={`${classes.arrow} + ${classes["next-arrow"]}`}>
+					className={lightbox ? `${classes.arrow} + ${classes['lightbox-arrow']} + ${classes["next-arrow"]}` : `${classes.arrow} + ${classes["next-arrow"]}`}>
 					<NextIcon />
 				</button>
 			</div>

@@ -1,6 +1,3 @@
-/* .wrapper {
-	width: 100vw;
-} */
 .gallery {
 	position: relative;
 }
@@ -41,24 +38,28 @@
 	display: none;
 }
 @media (min-width: 576px) {
-	/* .wrapper {
-		margin: 1.5em auto;
-		width: 50rem;
-	} */
 	.image {
 		border-radius: 10px;
 	}
 }
 @media (min-width: 768px) {
-	/* .wrapper {
-		margin: 0;
-		width: 40rem;
-	} */
 	.gallery {
 		cursor: zoom-in;
 	}
+	.gallery.lightbox-gallery {
+		cursor: auto;
+	}
 	.arrow {
 		display: none;
+	}
+	.arrow.lightbox-arrow {
+		display: flex;
+	}
+	.prev-arrow {
+		left: -1.5em;
+	}
+	.next-arrow {
+		right: -1.5em;
 	}
 	.thumbnails {
 		display: flex;
