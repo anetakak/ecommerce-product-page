@@ -48,3 +48,8 @@
         margin-top: -1em;
     }
 }
+@media (min-width: 1200px) {
+    .cart {
+        right: -5em;
+    }
+}

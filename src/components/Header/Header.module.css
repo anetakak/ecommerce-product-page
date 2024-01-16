@@ -30,6 +30,24 @@
 .cart-btn:hover path, .mobilenav-btn:hover path {
     fill: hsl(220, 13%, 13%);
 }
+.cart-btn {
+    position: relative;
+}
+.cart-items {
+    position: absolute;
+    top: 0;
+    right: 0;
+    /* width: 1.2em;
+    height: 1em; */
+    border-radius: 0.6em;
+    background-color: hsl(26, 100%, 55%);
+}
+.cart-items p {
+    padding: 0.1em 0.6em;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: hsl(0, 0%, 100%);
+}
 .avatar {
     width: 2em;
     border: solid 2px transparent;
