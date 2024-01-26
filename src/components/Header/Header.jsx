@@ -34,7 +34,7 @@ const Header = () => {
 			<div className={classes['user-panel']}>
 				<button onClick={showCartHandler} className={classes['cart-btn']}>
 					<CartIcon />
-					{(cartCtx.items > 0) && <div className={classes['cart-items']}><p>{cartCtx.items}</p></div>}
+					{(cartCtx.items !== "") && <div className={classes['cart-items']}><p>{cartCtx.items.quantity}</p></div>}
 				</button>
 				<button>
 					<img src={avatar} alt="" className={classes.avatar}/>

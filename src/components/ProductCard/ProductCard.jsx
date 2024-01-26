@@ -7,13 +7,21 @@ import Gallery from "../Gallery/Gallery";
 import Button from "../UI/Button/Button";
 import Lightbox from "../Lightbox/Lightbox";
 import CartContext from "../../store/CartContext";
+import data from "../../available-items.json";
+
+import { currencyFormatter } from "../../util/formatting";
 
 const ProductCard = () => {
-	const cartCtx = useContext((CartContext));
+	const cartCtx = useContext(CartContext);
+
 	const [showLightbox, setShowLightbox] = useState(false);
 	const [clickedImg, setClickedImg] = useState();
+	const [quantity, setQuantity] = useState(0);
 
-	const [quantity, setQuantity] = useState(0)
+	const item = data[0];
+
+	// const currentPrice =
+	// 	(parseFloat(item.price) * parseFloat(item.discount)) / 100;
 
 	const showLightboxHandler = (imgIndex) => {
 		if (window.innerWidth > 768) {
@@ -26,23 +34,25 @@ const ProductCard = () => {
 	};
 
 	const IncreaseQuantity = () => {
-		setQuantity(prev => prev + 1)
-	}
+		setQuantity((prev) => prev + 1);
+	};
 	const DecreaseQuantity = () => {
 		if (quantity > 0) {
-			setQuantity(prev => prev - 1)
+			setQuantity((prev) => prev - 1);
 		}
-	}
+	};
 	const addToCartHandler = () => {
-		cartCtx.addItem(quantity);
-		setQuantity(0)
-	}
+		cartCtx.addItem(item, quantity);
+		setQuantity(0);
+	};
 	return (
 		<div className={classes["product-card"]}>
 			<div className={classes["gallery-box"]}>
 				<Gallery
 					indexOfInitialPhoto={0}
 					onClick={showLightboxHandler}
+					images={item.images}
+					thumbnails={item.thumbnails}
 				/>
 			</div>
 			{showLightbox && (
@@ -50,21 +60,22 @@ const ProductCard = () => {
 					open={showLightbox}
 					onCloseLightbox={closeLightboxHandler}
 					indexOfInitialPhoto={clickedImg}
+					images={item.images}
+					thumbnails={item.thumbnails}
 				/>
 			)}
 			<div className={classes["product-summary"]}>
-				<p className={classes.brand}>sneaker company</p>
-				<h1 className={classes.heading}>Fall Limited Edition Sneakers</h1>
-				<p className={classes.description}>
-					These low-profile sneakers are your perfect casual wear companion.
-					Featuring a durable rubber outer sole, they'll withstand everything
-					the weather can offer.
-				</p>
+				<p className={classes.brand}>{item.brand}</p>
+				<h1 className={classes.heading}>{item.name}</h1>
+				<p className={classes.description}>{item.description}</p>
 				<div className={classes["price-box"]}>
 					<p className={classes.price}>
-						$125.00 <span className={classes.discount}>50%</span>
+						{currencyFormatter.format(item.price)}{" "}
+						<span className={classes.discount}>{item.discount}%</span>
 					</p>
-					<p className={classes["prev-price"]}>$250.00</p>
+					<p className={classes["prev-price"]}>
+						{currencyFormatter.format(item['prev-price'])}
+					</p>
 				</div>
 				<div className={classes.action}>
 					<div className={classes["amount-box"]}>

@@ -1,24 +1,44 @@
 import { createContext, useState } from "react";
 
 const CartContext = createContext({
-    items: [],
-    addItem: () => {},
-    removeItem: () => {},
-    clearCart: () => {},
-})
+	items: {},
+	addItem: () => {},
+	removeItem: () => {},
+});
 
 export const CartContextProvider = ({ children }) => {
-    const [items, setItems] = useState(0);
+	const [items, setItems] = useState("");
 
-    const addItem = (quantity) => {
-        setItems(prev => prev + quantity)
-    }
+	const addItem = (item, quantity) => {
+		if (items !== "") {
+			setItems((prev) => ({
+				...prev,
+				quantity: prev.quantity + quantity,
+			}));
+		} else {
+			setItems({ ...item, quantity: quantity });
+		}
+	};
 
-    const CartCtx = {
-        items: items,
-        addItem
-    }
+	const removeItem = () => {
+		if (items.quantity <= 1) {
+			setItems("");
+		} else {
+			setItems((prev) => ({
+				...prev,
+				quantity: prev.quantity - 1,
+			}));
+		}
+	};
 
-    return <CartContext.Provider value={CartCtx}>{children}</CartContext.Provider>
-}
+	const CartCtx = {
+		items: items,
+		addItem,
+		removeItem,
+	};
+
+	return (
+		<CartContext.Provider value={CartCtx}>{children}</CartContext.Provider>
+	);
+};
 export default CartContext;

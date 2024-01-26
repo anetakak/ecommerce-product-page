@@ -3,19 +3,17 @@ import classes from "./Gallery.module.css";
 import PrevIcon from "../../components/UI/Icons/PrevIcon";
 import NextIcon from "../../components/UI/Icons/NextIcon";
 
-import img1 from "../../images/image-product-1.jpg";
-import img2 from "../../images/image-product-2.jpg";
-import img3 from "../../images/image-product-3.jpg";
-import img4 from "../../images/image-product-4.jpg";
-import thumbnail1 from "../../images/image-product-1-thumbnail.jpg";
-import thumbnail2 from "../../images/image-product-2-thumbnail.jpg";
-import thumbnail3 from "../../images/image-product-3-thumbnail.jpg";
-import thumbnail4 from "../../images/image-product-4-thumbnail.jpg";
-
-const Gallery = ({ indexOfInitialPhoto, onClick, lightbox }) => {
-	const imgArr = [img1, img2, img3, img4];
+const Gallery = ({
+	indexOfInitialPhoto,
+	onClick,
+	images,
+	thumbnails,
+	lightbox,
+}) => {
 	const [currentImgIndex, setCurrentImgIndex] = useState(indexOfInitialPhoto);
-	const thumbnailsArr = [thumbnail1, thumbnail2, thumbnail3, thumbnail4];
+
+	const imgArr = images;
+	const thumbnailsArr = thumbnails;
 
 	const nextImgHandle = () => {
 		if (currentImgIndex === imgArr.length - 1) {
@@ -36,23 +34,38 @@ const Gallery = ({ indexOfInitialPhoto, onClick, lightbox }) => {
 	};
 	const showLightboxHandler = (currentImgIndex) => {
 		onClick(currentImgIndex);
-	}
+	};
 	return (
 		<>
-			<div className={lightbox ? `${classes['lightbox-gallery']} + ${classes.gallery}` : `${classes.gallery}`} onClick={() => showLightboxHandler(currentImgIndex)}>
+			<div
+				className={
+					lightbox
+						? `${classes["lightbox-gallery"]} + ${classes.gallery}`
+						: `${classes.gallery}`
+				}
+				onClick={() => showLightboxHandler(currentImgIndex)}>
 				<img
-					src={imgArr[currentImgIndex]}
+					src={`/ecommerce-product-page/src/${imgArr[currentImgIndex]}`}
+					// src={imgArr[currentImgIndex]}
 					alt="photo of shoes"
 					className={classes.image}
 				/>
-				<button 
+				<button
 					onClick={prevImgHandle}
-					className={lightbox ? `${classes.arrow} + ${classes['lightbox-arrow']} + ${classes["prev-arrow"]}` : `${classes.arrow} + ${classes["prev-arrow"]}`}>
+					className={
+						lightbox
+							? `${classes.arrow} + ${classes["lightbox-arrow"]} + ${classes["prev-arrow"]}`
+							: `${classes.arrow} + ${classes["prev-arrow"]}`
+					}>
 					<PrevIcon />
 				</button>
 				<button
 					onClick={nextImgHandle}
-					className={lightbox ? `${classes.arrow} + ${classes['lightbox-arrow']} + ${classes["next-arrow"]}` : `${classes.arrow} + ${classes["next-arrow"]}`}>
+					className={
+						lightbox
+							? `${classes.arrow} + ${classes["lightbox-arrow"]} + ${classes["next-arrow"]}`
+							: `${classes.arrow} + ${classes["next-arrow"]}`
+					}>
 					<NextIcon />
 				</button>
 			</div>
@@ -67,7 +80,7 @@ const Gallery = ({ indexOfInitialPhoto, onClick, lightbox }) => {
 						key={index}
 						onClick={() => chooseImgHandle(index)}>
 						<img
-							src={item}
+							src={`/ecommerce-product-page/src/${item}`}
 							alt=""
 							className={
 								currentImgIndex === index
