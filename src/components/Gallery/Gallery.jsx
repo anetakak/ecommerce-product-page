@@ -45,8 +45,7 @@ const Gallery = ({
 				}
 				onClick={() => showLightboxHandler(currentImgIndex)}>
 				<img
-					src={`/ecommerce-product-page/src/${imgArr[currentImgIndex]}`}
-					// src={imgArr[currentImgIndex]}
+					src={`https://github.com/anetakak/ecommerce-product-page/blob/main/src/${imgArr[currentImgIndex]}`}
 					alt="photo of shoes"
 					className={classes.image}
 				/>
@@ -80,7 +79,7 @@ const Gallery = ({
 						key={index}
 						onClick={() => chooseImgHandle(index)}>
 						<img
-							src={`/ecommerce-product-page/src/${item}`}
+							src={`https://github.com/anetakak/ecommerce-product-page/blob/main/src/${item}`}
 							alt=""
 							className={
 								currentImgIndex === index
