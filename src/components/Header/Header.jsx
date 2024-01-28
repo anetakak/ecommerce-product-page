@@ -1,6 +1,6 @@
 import { useState, useContext } from "react";
 import classes from "./Header.module.css";
-import avatar from "../../assets/images/image-avatar.png";
+import avatar from "../../images/image-avatar.png";
 
 import MenuIcon from "../UI/Icons/MenuIcon";
 import CartIcon from "../UI/Icons/CartIcon";
