@@ -45,7 +45,7 @@ const Gallery = ({
 				}
 				onClick={() => showLightboxHandler(currentImgIndex)}>
 				<img
-					src={`./ecommerce-product-page/src/assets/${imgArr[currentImgIndex]}`}
+					src={`../ecommerce-product-page/src/assets/${imgArr[currentImgIndex]}`}
 					alt="photo of shoes"
 					className={classes.image}
 				/>
