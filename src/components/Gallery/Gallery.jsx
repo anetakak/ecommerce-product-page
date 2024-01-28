@@ -79,7 +79,7 @@ const Gallery = ({
 						key={index}
 						onClick={() => chooseImgHandle(index)}>
 						<img
-							src={`https://github.com/anetakak/ecommerce-product-page/blob/main/src/${item}`}
+							src={item}
 							alt="thumbnail of shoes"
 							className={
 								currentImgIndex === index
