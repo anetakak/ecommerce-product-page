@@ -18,7 +18,7 @@ const Cart = () => {
 		return (
 			<div className={classes["item-box"]}>
 				<img
-					src={`https://github.com/anetakak/ecommerce-product-page/blob/main/src/${cartCtx.items.images[0]}`}
+					src={cartCtx.items.images[0]}
 					alt="thumbnail of item"
 					className={classes['item-thumbnail']}
 				/>
