@@ -1,5 +1,6 @@
 import { useState, useContext } from "react";
 import classes from "./Header.module.css";
+import logo from "../../images/logo.svg"
 import avatar from "../../images/image-avatar.png";
 
 import MenuIcon from "../UI/Icons/MenuIcon";
@@ -28,7 +29,7 @@ const Header = () => {
 				<button onClick={showNavHandler} className={classes['mobilenav-btn']}>
 					<MenuIcon />
 				</button>
-				<a href="#" className={classes.logo}>sneakers</a>
+				<img src={logo} alt="logo sneakers" className={classes.logo} />
             <Navigation  onCloseNav={closeNavHandler} showNav={showNav} />
 			</div>
 			<div className={classes['user-panel']}>
