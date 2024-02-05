@@ -44,7 +44,7 @@
 }
 @media (min-width: 768px) {
 	.gallery {
-		cursor: zoom-in;
+		cursor: pointer;
 	}
 	.gallery.lightbox-gallery {
 		cursor: auto;
