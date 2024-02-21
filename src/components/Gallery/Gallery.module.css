@@ -63,8 +63,8 @@
 	}
 	.thumbnails {
 		display: flex;
-		margin-top: 1.4em;
-		gap: 1.5em;
+		margin-top: 1em;
+		gap: 1.2em;
 		max-width: 40rem;
 	}
 	.thumbnail-item {
@@ -88,5 +88,11 @@
     }
 	.thumbnail-item--active {
 		border: 3px solid hsl(26, 100%, 55%);
+	}
+}
+@media (min-width: 992px) {
+	.thumbnails {
+		margin-top: 1.4em;
+		gap: 1.5em;
 	}
 }
