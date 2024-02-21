@@ -1,6 +1,6 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useRef } from "react";
 import classes from "./Header.module.css";
-import logo from "../../images/logo.svg"
+import logo from "../../images/logo.svg";
 import avatar from "../../images/image-avatar.png";
 
 import MenuIcon from "../UI/Icons/MenuIcon";
@@ -11,37 +11,46 @@ import CartContext from "../../store/CartContext";
 
 const Header = () => {
 	const cartCtx = useContext(CartContext);
-    const [showNav, setShowNav] = useState(false);
+	const [showNav, setShowNav] = useState(false);
 	const [showCart, setShowCart] = useState(false);
 
-    const showNavHandler = () => {
-        setShowNav(true);
-    }
-    const closeNavHandler = () => {
-        setShowNav(false);
-    }
+	const cartButton = useRef();
+
+	const showNavHandler = () => {
+		setShowNav(true);
+	};
+	const closeNavHandler = () => {
+		setShowNav(false);
+	};
 	const showCartHandler = () => {
-		setShowCart(prev => !prev);
-	}
+		setShowCart((prev) => !prev);
+	};
 	return (
 		<header className={classes.header}>
 			<div className={classes.navbar}>
-				<button onClick={showNavHandler} className={classes['mobilenav-btn']}>
+				<button onClick={showNavHandler} className={classes["mobilenav-btn"]}>
 					<MenuIcon />
 				</button>
 				<img src={logo} alt="logo sneakers" className={classes.logo} />
-            <Navigation  onCloseNav={closeNavHandler} showNav={showNav} />
+				<Navigation onCloseNav={closeNavHandler} showNav={showNav} />
 			</div>
-			<div className={classes['user-panel']}>
-				<button onClick={showCartHandler} className={classes['cart-btn']}>
+			<div className={classes["user-panel"]}>
+				<button
+					ref={cartButton}
+					onClick={showCartHandler}
+					className={classes["cart-btn"]}>
 					<CartIcon />
-					{(cartCtx.items !== "") && <div className={classes['cart-items']}><p>{cartCtx.items.quantity}</p></div>}
+					{cartCtx.items !== "" && (
+						<div className={classes["cart-items"]}>
+							<p>{cartCtx.items.quantity}</p>
+						</div>
+					)}
 				</button>
 				<button>
-					<img src={avatar} alt="" className={classes.avatar}/>
+					<img src={avatar} alt="" className={classes.avatar} />
 				</button>
 			</div>
-			{showCart && <Cart />}
+			{showCart && <Cart ref={cartButton} onCloseCart={showCartHandler} />}
 		</header>
 	);
 };

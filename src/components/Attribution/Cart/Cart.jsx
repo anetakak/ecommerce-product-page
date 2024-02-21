@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, forwardRef, useRef, useEffect } from "react";
 import CartContext from "../../../store/CartContext.jsx";
 import Button from "../../UI/Button/Button.jsx";
 import DeleteIcon from "../../UI/Icons/DeleteIcon.jsx";
@@ -6,13 +6,30 @@ import { currencyFormatter } from "../../../util/formatting";
 
 import classes from "./Cart.module.css";
 
-const Cart = () => {
+const Cart = forwardRef(function Cart({ onCloseCart }, ref) {
+	const cart = useRef();
+	
+	useEffect(() => {
+		const handleOutsideClick = (event) => {
+			if (cart.current && !cart.current.contains(event.target) && !ref.current.contains(event.target)) {
+				onCloseCart();
+			}
+		};
+
+		document.addEventListener("mousedown", handleOutsideClick);
+		return () => {
+			document.removeEventListener("mousedown", handleOutsideClick);
+		};
+	});
+	
+	
 	const cartCtx = useContext(CartContext);
+
 	const totalItems = cartCtx.items.quantity * cartCtx.items.price;
 
 	const deleteHandler = () => {
 		cartCtx.removeItem();
-	}
+	};
 
 	const ItemInCart = () => {
 		return (
@@ -20,12 +37,13 @@ const Cart = () => {
 				<img
 					src={cartCtx.items.images[0]}
 					alt="thumbnail of item"
-					className={classes['item-thumbnail']}
+					className={classes["item-thumbnail"]}
 				/>
-				<div className={classes['item-summary']}>
+				<div className={classes["item-summary"]}>
 					<p>{cartCtx.items.name}</p>
 					<p>
-						{currencyFormatter.format(cartCtx.items.price)} x {cartCtx.items.quantity}{" "}
+						{currencyFormatter.format(cartCtx.items.price)} x{" "}
+						{cartCtx.items.quantity}{" "}
 						<span>{currencyFormatter.format(totalItems)}</span>
 					</p>
 				</div>
@@ -36,7 +54,7 @@ const Cart = () => {
 		);
 	};
 	return (
-		<div className={classes.cart}>
+		<div ref={cart} className={classes.cart}>
 			<h3 className={classes.title}>Cart</h3>
 			<div className={classes.content}>
 				{cartCtx.items.length === 0 ? (
@@ -44,11 +62,11 @@ const Cart = () => {
 				) : (
 					<>
 						<ItemInCart />
-						<Button className={classes['checkout-btn']}>Checkout</Button>
+						<Button className={classes["checkout-btn"]}>Checkout</Button>
 					</>
 				)}
 			</div>
 		</div>
 	);
-};
+})
 export default Cart;
